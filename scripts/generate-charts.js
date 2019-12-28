@@ -39,7 +39,7 @@ for (let i = 0; i < len; i++) {
             labels: ['Обществен сектор', 'Частен сектор'],
             
             datasets: [{
-                label: item.activity,
+                label: 'Брой наети лица',
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: [item.publicSector, item.privateSector]
@@ -47,7 +47,12 @@ for (let i = 0; i < len; i++) {
         },
     
         // Configuration options go here
-        options: {}
+        options: {
+            title: {
+                display: true,
+                text: item.activity
+            }
+        }
     });    
 }
 
