@@ -12,6 +12,7 @@ for (let i = 0; i < len; i++) {
         .attr('role', 'tab')
         .attr('aria-controls', `#chart-${i}`)
         .attr('aria-selected', 'false')
+        .on('click', scrollToTop)
         .appendTo('#v-pills-tab');
 
 
