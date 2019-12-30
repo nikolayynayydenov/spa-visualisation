@@ -173,7 +173,7 @@ function generateSalaryChartBySector()
                     label: 'Средна Заплата',
                     backgroundColor: 'rgba(0, 155, 100, 0.5)',
                     borderColor: 'rgb(255, 99, 132)',
-                    data: [item.publicSector, item.privateSector]
+                    data: [item.publicSector, item.privateSector,item.privateSector/1000]
                 }]
             },
         
@@ -230,9 +230,37 @@ let sectorDat = data['salary']['bySector'];
                 labels: ['Мъже', 'Жени'],
                 
                 datasets: [{
-                    label: 'Средна Заплата',
+                    label: 'Средна годишна заплата',
                     backgroundColor: ['rgba(0,0,255,0.5)','rgba(255, 192, 203,1)'],
-                    borderColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgba(0, 0, 0,0.1)',
+                    data: [item.publicSector, item.privateSector,item.privateSector/1000]
+                }]
+            },
+            // Configuration options go here
+            options: {
+                title: {
+                    display: true,
+                    text: item.activity
+                }
+            }
+        }); 
+	$('<canvas/>')
+            .attr('id', `salary-1-canvas-${i}-2`)
+            .appendTo(chartDiv);
+            
+        let ctx2 = document.getElementById(`salary-1-canvas-${i}-2`).getContext('2d');
+        let chart2 = new Chart(ctx2, {
+            // The type of chart we want to create
+            type: 'pie',
+        
+            // The data for our dataset
+            data: {
+                labels: ['Мъже', 'Жени'],
+                
+                datasets: [{
+                    label: 'Средна годишна заплата',
+                    backgroundColor: ['rgba(0,0,255,0.5)','rgba(255, 192, 203,1)'],
+                    borderColor: 'rgba(0, 0, 0,0.1)',
                     data: [item.publicSector, item.privateSector]
                 }]
             },
@@ -243,9 +271,9 @@ let sectorDat = data['salary']['bySector'];
                     text: item.activity
                 }
             }
-        });    
+        });   
     }
 }
 
-
+//function makeStatTable(divElement,dataElement,)
 
