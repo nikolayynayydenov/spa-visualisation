@@ -7,6 +7,7 @@
     <title>Visualisation</title>
 
     <link rel="stylesheet" href="libraries/bootstrap-4.4.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/page-layout.css">
 
     <script src="libraries/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/popper.min.js" integrity="sha256-trs1NroMTXyZS9LeGSSGjIWW3EKTGqAbWaYR5iSVMyQ=" crossorigin="anonymous"></script>
@@ -15,6 +16,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
         <a class="navbar-brand" href="#">Визуализация за СПА</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -22,34 +24,52 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Наети лица <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" onclick="gopage(0)" href="#">Наети лица <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Заплати</a>
-                </li>
+                    <a class="nav-link" onclick="gopage(1)" href="#">Заплати</a>
+                </l page1i>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Коефиценти за безработица</a>
+                    <a class="nav-link" onclick="gopage(2)" href="#">Коефиценти за безработица</a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <div class="container" id="main-container">
+    <div id="pages">
+
+    <!-- NAETI LICA -->
+    <div class="page page1" id="main-container">
         <div class="row">
-            <div class="col-md-3">
-                <div class="nav flex-column nav-pills" 
-                    id="v-pills-tab" 
-                    role="tablist" 
-                    aria-orientation="vertical"></div>
-            </div>
-            <div class="col-md-9">
-                <div class="tab-content" id="v-pills-tabContent"></div>
+            <div class="container">
+                <div class="col-md-3">
+                    <div class="nav flex-column nav-pills" 
+                        id="v-pills-tab" 
+                        role="tablist" 
+                        aria-orientation="vertical"></div>
+                </div>
+                <div class="col-md-9">
+                    <div class="tab-content" id="v-pills-tabContent"></div>
+                </div>
             </div>
         </div>
     </div>
 
+    <!-- ZAPLATI -->
+    <div class="page page2">
+        ZAPLATI
+    </div>
+
+    <!-- KOEFICIENTI -->
+    <div class="page page3">
+        KOEFICIENTI
+    </div>
+
+    </div>
+
     <script src="data/hired.js"></script>
     <script src="scripts/utils.js"></script>
+    <script src="scripts/page-transition.js"></script>
     <script src="scripts/generate-charts.js"></script>
 </body>
 </html>
