@@ -8,11 +8,14 @@
 
     <link rel="stylesheet" href="libraries/bootstrap-4.4.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/page-layout.css">
+    <link rel="stylesheet" href="css/provinces-map.css">
+    <link rel="stylesheet" href="libraries/leaflet/leaflet.css">
 
     <script src="libraries/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/popper.min.js" integrity="sha256-trs1NroMTXyZS9LeGSSGjIWW3EKTGqAbWaYR5iSVMyQ=" crossorigin="anonymous"></script>
     <script src="libraries/Chart.min.js"></script>
     <script src="libraries/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+    <script src="libraries/leaflet/leaflet.js"></script>
 </head>
 <body>
 
@@ -29,10 +32,9 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Наети лица</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#" onclick="gopage(0)">По икономически сектор</a>
-                        <a class="dropdown-item" href="#" onclick="gopage(1)">По административна област</a>
+                        <a class="dropdown-item" href="#" onclick="gopage(0);generateHiredStatsChart();">По икономически сектор</a>
+                        <a class="dropdown-item" href="#" onclick="gopage(1);generateProvincesMap();">По административна област</a>
                     </div>
-                    <!-- <a class="nav-link" onclick="gopage(0)" href="#">Наети лица <span class="sr-only">(current)</span></a> -->
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" onclick="gopage(2)" href="#">Заплати</a>
@@ -43,9 +45,8 @@
             </ul>
         </div>
     </nav>
-
     <div id="pages">
-
+    
     <!-- NAETI LICA PO SEKTOR -->
     <div class="page page1" id="main-container">
         <div class="row">
@@ -62,12 +63,9 @@
             </div>
         </div>
     </div>
-
     <!-- NAETI LICA PO OBLAST -->
-    <div class="page page2">
-        <div class="container">
-            po oblast
-        </div>
+    <div class="page page2">  
+        <div id="provinces-map"></div>
     </div>
 
     <!-- ZAPLATI -->
@@ -82,9 +80,14 @@
 
     </div>
 
+    <script>
+        let data = {};
+    </script>
     <script src="data/hired.js"></script>
+    <script src="data/provinces.js"></script>
     <script src="scripts/utils.js"></script>
     <script src="scripts/page-transition.js"></script>
-    <script src="scripts/generate-charts.js"></script>
+    <script src="scripts/hired-stats-chart.js"></script>
+    <script src="scripts/provinces-map.js"></script>
 </body>
 </html>

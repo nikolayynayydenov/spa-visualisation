@@ -1,5 +1,3 @@
-
-
 let pages = document.getElementById("pages");
 
 function gopage(pageid) {

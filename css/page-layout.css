@@ -22,14 +22,15 @@ body {
 }
 
 .page3 {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .page4 {
-  background: yellow;
+  /* background: yellow; */
 }
 
 .container {
   display: flex;
   flex-direction: row;
 }
+
