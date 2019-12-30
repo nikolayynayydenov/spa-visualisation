@@ -6,7 +6,7 @@ body {
 #pages {
   display: flex;
   flex-direction: row;
-  width: 300%;
+  width: 400%;
 
   position: relative;
   left: 0;
@@ -14,15 +14,19 @@ body {
 }
 
 .page{
-  width: 100%;
+    width: 100%;
 }
 
 .page2 {
-  background: green;
+  /* background: green; */
 }
 
 .page3 {
   text-align: center;
+}
+
+.page4 {
+  background: yellow;
 }
 
 .container {
