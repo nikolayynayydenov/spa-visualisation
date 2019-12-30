@@ -173,7 +173,7 @@ function generateSalaryChartBySector()
                     label: 'Средна Заплата',
                     backgroundColor: 'rgba(0, 155, 100, 0.5)',
                     borderColor: 'rgb(255, 99, 132)',
-                    data: [item.publicSector, item.privateSector,item.privateSector/1000]
+                    data: [item.publicSector, item.privateSector,"0"]
                 }]
             },
         
@@ -233,7 +233,7 @@ let sectorDat = data['salary']['byGender'];
                     label: 'Средна годишна заплата',
                     backgroundColor: ['rgba(0,0,255,0.5)','rgba(255, 192, 203,1)'],
                     borderColor: 'rgba(0, 0, 0,0.1)',
-                    data: [item.publicSector, item.privateSector,item.privateSector/1000]
+                    data: [item.man, item.woman,"0"]
                 }]
             },
             // Configuration options go here
@@ -261,7 +261,7 @@ let sectorDat = data['salary']['byGender'];
                     label: 'Средна годишна заплата',
                     backgroundColor: ['rgba(0,0,255,0.5)','rgba(255, 192, 203,1)'],
                     borderColor: 'rgba(0, 0, 0,0.1)',
-                    data: [item.publicSector, item.privateSector]
+                    data: [item.man, item.woman]
                 }]
             },
             // Configuration options go here
