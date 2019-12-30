@@ -13,20 +13,24 @@ body {
   transition: left 0.25s;
 }
 
-.page{
+.page {
     width: 100%;
 }
 
-.page2 {
-  /* background: green; */
+.page-sektor {
+
 }
 
-.page3 {
+.page-oblast {
   text-align: center;
 }
 
-.page4 {
-  background: yellow;
+.page-zaplati {
+  text-align: center;
+}
+
+.page-koef {
+  text-align: center;
 }
 
 .container {
