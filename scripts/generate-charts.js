@@ -1,6 +1,6 @@
 function generateProvincesMap() {
     var mymap = L.map('provinces-map')
-        .setView([42.8860136,26.0435019], 13)
+        .setView([42.4860136,25.4435019])
         .setZoom(7.7);
 
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
