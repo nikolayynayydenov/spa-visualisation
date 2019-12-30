@@ -189,7 +189,7 @@ function generateSalaryChartBySector()
 }
 function generateSalaryChartByGender()
 {
-let sectorDat = data['salary']['bySector'];
+let sectorDat = data['salary']['byGender'];
  let datlen = sectorDat.length;
     for (let i = 0; i < datlen; i++) {
         let item =  sectorDat[i];
