@@ -13,7 +13,14 @@ function generateProvincesMap() {
     data['provinces'].forEach(feature => {
         L.geoJSON(feature)
             .bindPopup((layer) => {
-                return layer.feature.properties.nuts3;
+                let props = layer.feature.properties;
+                let result = "";
+                for (var prop in props) {
+                    if (Object.prototype.hasOwnProperty.call(props, prop)) {
+                        result += `<b>${prop}</b>: ${props[prop]}</br>`;
+                    }
+                }
+                return result;
             })
             .addTo(mymap);
     });
