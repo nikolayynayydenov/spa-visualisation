@@ -1,26 +1,43 @@
 function generateProvincesMap() {
-    var mymap = L.map('provinces-map')
-        .setView([42.4860136,25.4435019])
-        .setZoom(7.7);
+    var mymap = L.map('provinces-map', {
+        minZoom: 7.4,
+        maxZoom: 9,
+        zoomSnap: 0,
+        zoomDelta: 0.1,
+    })        
+        .setView([42.7160136,25.3435019])
+        .setZoom(7.4);
 
+    
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
         id: 'mapbox/streets-v11',
         accessToken: 'pk.eyJ1Ijoibmlrb2xheXkiLCJhIjoiY2s0c2kybzRiMTl0eDNscDE5bXMwYXIzayJ9.EHG22-TMFIahiqXG-BuRMw'
     }).addTo(mymap);
     
     data['provinces'].forEach(feature => {
+        let props = feature.properties;
+
         L.geoJSON(feature)
-            .bindPopup((layer) => {
-                let props = layer.feature.properties;
-                let result = "";
-                for (var prop in props) {
-                    if (Object.prototype.hasOwnProperty.call(props, prop)) {
-                        result += `<b>${prop}</b>: ${props[prop]}</br>`;
-                    }
-                }
-                return result;
+            .bindPopup(`<canvas id="${props['град']}" width="600" height="400"></canvas>`, {
+                autoPan: false
+            })
+            .on('click', function () {
+                let ctx = document.getElementById(props['град']).getContext('2d');
+                let { град, ...months } = props;
+                let myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: Object.keys(months),
+                        datasets: [{
+                            label: 'Наети лица в ' + props['град'],
+                            data: Object.values(months),
+                            borderWidth: 1,
+                            backgroundColor: "#f5c011"
+                        }]
+                    },
+                    options: {}
+                });
             })
             .addTo(mymap);
     });
