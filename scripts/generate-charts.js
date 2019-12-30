@@ -60,7 +60,7 @@ function generateHiredStatsChart() {
             .attr('id', `canvas-${i}`)
             .appendTo(chartDiv);
             
-
+	generateStatisticsTable(chartDiv,i)
         let ctx = document.getElementById(`canvas-${i}`).getContext('2d');
         let chart = new Chart(ctx, {
             // The type of chart we want to create
@@ -123,4 +123,31 @@ function generateHiredStatsChartAlt() {
             }
         }
     });
+}
+
+
+
+
+///Makes a table with general statistics of the data.For example exact values, %of people from whole 
+//sample goup, %of people from all samples , etc.
+
+function generateStatisticsTable(chartDiv, index){
+let statTable = $('<table></table>')
+	.attr('id',`chart-table-${index}`)
+	.attr('class','chart-table')	
+	.appendTo(chartDiv);
+
+let headerRow = $('<tr></tr>')
+	.attr('class','chtable-head-row')
+	.attr('id',`chtable-head-row-${index}`)
+	.appendTo(statTable);
+
+	$('<th></th>')
+	.text('Обществен Сектор')
+	.appendTo(headerRow);
+	
+	$('<th></th>')
+	.text('Частен Сектор')
+	.appendTo(headerRow);
+	
 }
