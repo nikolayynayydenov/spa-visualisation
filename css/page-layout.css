@@ -6,7 +6,7 @@ body {
 #pages {
   display: flex;
   flex-direction: row;
-  width: 400%;
+  width: 500%;
 
   position: relative;
   left: 0;
@@ -18,7 +18,9 @@ body {
 }
 
 .page-sektor {
+}
 
+.page-sektor-alt {
 }
 
 .page-oblast {

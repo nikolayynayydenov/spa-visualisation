@@ -60,3 +60,35 @@ for (let i = 0; i < len; i++) {
 
 
 
+
+var altDisplayData = {
+    labels: hired.map(obj => obj.activity),
+    datasets: [
+        {
+            label: 'Частен сектор',
+            backgroundColor: "#136486",
+            data: hired.map(obj => obj.privateSector)
+        },
+        {
+            label: 'Обществен сектор',
+            backgroundColor: "#f4b800",
+            data: hired.map(obj => obj.publicSector)
+        }
+    ]
+};
+
+let ctx = document.getElementById('sektor2canvas').getContext('2d');
+let chart = new Chart(ctx, {
+    type: 'horizontalBar',
+    data: altDisplayData,
+    options: {
+        scales: {
+						xAxes: [{
+							stacked: true,
+						}],
+						yAxes: [{
+							stacked: true
+						}]
+					}
+    }
+});
