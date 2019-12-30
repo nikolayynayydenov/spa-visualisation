@@ -33,14 +33,15 @@
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Наети лица</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="#" onclick="gopage(0);generateHiredStatsChart();">По икономически сектор</a>
-                        <a class="dropdown-item" href="#" onclick="gopage(1);generateProvincesMap();">По административна област</a>
+                        <a class="dropdown-item" href="#" onclick="gopage(1);generateHiredStatsChartAlt()">По икономически сектор alternative</a>
+                        <a class="dropdown-item" href="#" onclick="gopage(2);generateProvincesMap();">По административна област</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" onclick="gopage(2)" href="#">Заплати</a>
+                    <a class="nav-link" onclick="gopage(3)" href="#">Заплати</a>
                 </l page1i>
                 <li class="nav-item">
-                    <a class="nav-link" onclick="gopage(3)" href="#">Коефиценти за безработица</a>
+                    <a class="nav-link" onclick="gopage(4)" href="#">Коефиценти за безработица</a>
                 </li>
             </ul>
         </div>
@@ -48,7 +49,7 @@
     <div id="pages">
     
     <!-- NAETI LICA PO SEKTOR -->
-    <div class="page page1" id="main-container">
+    <div class="page page-sektor" id="main-container">
         <div class="row">
             <div class="container">
                 <div class="col-md-3">
@@ -63,18 +64,24 @@
             </div>
         </div>
     </div>
+
+    <!-- NAETI LICA PO SEKTOR ALT -->
+    <div class="page page-sektor-alt">
+        <canvas id="sektor2canvas" width="700" height="600"></canvas>
+    </div>
+
     <!-- NAETI LICA PO OBLAST -->
-    <div class="page page2">  
+    <div class="page page-oblast">
         <div id="provinces-map"></div>
     </div>
 
     <!-- ZAPLATI -->
-    <div class="page page3">
+    <div class="page page-zaplati">
         ZAPLATI
     </div>
 
     <!-- KOEFICIENTI -->
-    <div class="page page4">
+    <div class="page page-koef">
         <img src="images/bezrabotni.png" style="width:80%">
     </div>
 
@@ -87,7 +94,6 @@
     <script src="data/provinces.js"></script>
     <script src="scripts/utils.js"></script>
     <script src="scripts/page-transition.js"></script>
-    <script src="scripts/hired-stats-chart.js"></script>
-    <script src="scripts/provinces-map.js"></script>
+    <script src="scripts/generate-charts.js"></script>
 </body>
 </html>

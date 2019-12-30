@@ -86,7 +86,8 @@ data['hired'] = [
     {
         "activity": "Държавно управление",
         "all": "111142",
-        "publicSector": "x"
+        "publicSector": "111142",
+        "privateSector": "0"
     },
     {
         "activity": "Образование",
