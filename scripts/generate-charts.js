@@ -60,7 +60,6 @@ function generateHiredStatsChart() {
             .attr('id', `canvas-${i}`)
             .appendTo(chartDiv);
             
-	generateStatisticsTable(chartDiv,i)
         let ctx = document.getElementById(`canvas-${i}`).getContext('2d');
         let chart = new Chart(ctx, {
             // The type of chart we want to create
@@ -128,26 +127,125 @@ function generateHiredStatsChartAlt() {
 
 
 
-///Makes a table with general statistics of the data.For example exact values, %of people from whole 
-//sample goup, %of people from all samples , etc.
+function generateSalaryChartBySector()
+{
+ let sectorDat = data['salary']['bySector'];
+ let datlen = sectorDat.length;
+    for (let i = 0; i < datlen; i++) {
+        let item =  sectorDat[i];
 
-function generateStatisticsTable(chartDiv, index){
-let statTable = $('<table></table>')
-	.attr('id',`chart-table-${index}`)
-	.attr('class','chart-table')	
-	.appendTo(chartDiv);
+        $('<a>')
+            .text(item.activity)
+            .attr('class', 'nav-link')
+            .attr('id', `#salary-chart-${i}-tab`)
+            .attr('data-toggle', 'pill')
+            .attr('href', `#salary-chart-${i}`)
+            .attr('role', 'tab')
+            .attr('aria-controls', `#salary-chart-${i}`)
+            .attr('aria-selected', 'false')
+            .on('click', scrollToTop)
+            .appendTo('#zaplati0-left-side');
 
-let headerRow = $('<tr></tr>')
-	.attr('class','chtable-head-row')
-	.attr('id',`chtable-head-row-${index}`)
-	.appendTo(statTable);
 
-	$('<th></th>')
-	.text('Обществен Сектор')
-	.appendTo(headerRow);
-	
-	$('<th></th>')
-	.text('Частен Сектор')
-	.appendTo(headerRow);
-	
+        let chartDiv = $('<div>')
+            .attr('class', 'tab-pane fade')
+            .attr('id', `salary-chart-${i}`)
+            .attr('role', 'tabpanel')
+            .attr('aria-labelledby', `salary-chart-${i}-tab`)
+            .attr('aria-selected', 'false')
+            .appendTo('#zaplati0-right-side');
+
+
+        $('<canvas/>')
+            .attr('id', `salary-canvas-${i}`)
+            .appendTo(chartDiv);
+            
+        let ctx = document.getElementById(`salary-canvas-${i}`).getContext('2d');
+        let chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'bar',
+        
+            // The data for our dataset
+            data: {
+                labels: ['Обществен сектор', 'Частен сектор'],
+                
+                datasets: [{
+                    label: 'Средна Заплата',
+                    backgroundColor: 'rgba(0, 155, 100, 0.5)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: [item.publicSector, item.privateSector]
+                }]
+            },
+        
+            // Configuration options go here
+            options: {
+                title: {
+                    display: true,
+                    text: item.activity
+                }
+            }
+        });    
+    }
 }
+function generateSalaryChartByGender()
+{
+let sectorDat = data['salary']['bySector'];
+ let datlen = sectorDat.length;
+    for (let i = 0; i < datlen; i++) {
+        let item =  sectorDat[i];
+
+        $('<a>')
+            .text(item.activity)
+            .attr('class', 'nav-link')
+            .attr('id', `#salary-1-chart-${i}-tab`)
+            .attr('data-toggle', 'pill')
+            .attr('href', `#salary-1-chart-${i}`)
+            .attr('role', 'tab')
+            .attr('aria-controls', `#salary-1-chart-${i}`)
+            .attr('aria-selected', 'false')
+            .on('click', scrollToTop)
+            .appendTo('#zaplati-1-left-side');
+
+
+        let chartDiv = $('<div>')
+            .attr('class', 'tab-pane fade')
+            .attr('id', `salary-1-chart-${i}`)
+            .attr('role', 'tabpanel')
+            .attr('aria-labelledby', `salary-1-chart-${i}-tab`)
+            .attr('aria-selected', 'false')
+            .appendTo('#zaplati-1-right-side');
+
+
+        $('<canvas/>')
+            .attr('id', `salary-1-canvas-${i}`)
+            .appendTo(chartDiv);
+            
+        let ctx = document.getElementById(`salary-1-canvas-${i}`).getContext('2d');
+        let chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'bar',
+        
+            // The data for our dataset
+            data: {
+                labels: ['Мъже', 'Жени'],
+                
+                datasets: [{
+                    label: 'Средна Заплата',
+                    backgroundColor: ['rgba(0,0,255,0.5)','rgba(255, 192, 203,1)'],
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: [item.publicSector, item.privateSector]
+                }]
+            },
+            // Configuration options go here
+            options: {
+                title: {
+                    display: true,
+                    text: item.activity
+                }
+            }
+        });    
+    }
+}
+
+
+

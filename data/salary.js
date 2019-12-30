@@ -1,4 +1,4 @@
-data['salary'] = [
+data['salary'] = {
     "bySector": [
         {
             "activity": "Селско, горско и рибно стопанство",
@@ -115,7 +115,7 @@ data['salary'] = [
             "privateSector": "9079"
         }
     ],
-	"byGender":[
+	"byGender" : [
 	{
             "activity": "Селско, горско и рибно стопанство",
             "all": "10859",
@@ -235,5 +235,6 @@ data['salary'] = [
 
 
 
-]
+}
+
 

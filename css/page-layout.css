@@ -6,7 +6,7 @@ body {
 #pages {
   display: flex;
   flex-direction: row;
-  width: 500%;
+  width: 600%;
 
   position: relative;
   left: 0;
