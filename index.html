@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="libraries/bootstrap-4.4.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/page-layout.css">
     <link rel="stylesheet" href="css/provinces-map.css">
+    <link rel="stylesheet" href="css/chart-table-map.css">
+    
     <link rel="stylesheet" href="libraries/leaflet/leaflet.css">
 
     <script src="libraries/jquery.js"></script>
@@ -37,16 +39,31 @@
                         <a class="dropdown-item" href="#" onclick="gopage(2);generateProvincesMap();">По административна област</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" onclick="gopage(3)" href="#">Заплати</a>
-                </l page1i>
+
+
+
+                <li class="nav-item dropdown">
+			 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Заплати</a>
+			<div class="dropdown-menu">
+		<a class = "dropdown-item" href="#" onclick="gopage(3);generateSalaryChartBySector();"> По икономически сектор</a>
+		<a class = "dropdown-item" href="#" onclick="gopage(5);generateSalaryChartByGender();">По пол</a>
+			</div>
+
+
+
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" onclick="gopage(4)" href="#">Коефиценти за безработица</a>
                 </li>
             </ul>
         </div>
     </nav>
+
+
+
     <div id="pages">
+
+
     
     <!-- NAETI LICA PO SEKTOR -->
     <div class="page page-sektor" id="main-container">
@@ -75,14 +92,42 @@
         <div id="provinces-map"></div>
     </div>
 
-    <!-- ZAPLATI -->
+    <!-- ZAPLATI PO SECTOR-->
     <div class="page page-zaplati">
-        ZAPLATI
+       <div class="row">
+            <div class="container">
+                <div class="col-md-3">
+                    <div class="nav flex-column nav-pills zaplati-tabs" 
+                        id="zaplati0-left-side" 
+                        role="tablist" 
+                        aria-orientation="vertical"></div>
+                </div>
+                <div class="col-md-9">
+                    <div class="tab-content" id="zaplati0-right-side"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- KOEFICIENTI -->
     <div class="page page-koef">
         <img src="images/bezrabotni.png" style="width:80%">
+    </div>
+	<!--ZAPLATI PO POL -->
+	<div class="page page-zaplati-gender">
+       <div class="row">
+            <div class="container">
+                <div class="col-md-3">
+                    <div class="nav flex-column nav-pills" 
+                        id="zaplati-1-left-side" 
+                        role="tablist" 
+                        aria-orientation="vertical"></div>
+                </div>
+                <div class="col-md-9">
+                    <div class="tab-content" id="zaplati-1-right-side"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
     </div>
@@ -92,6 +137,7 @@
     </script>
     <script src="data/hired.js"></script>
     <script src="data/provinces.js"></script>
+    <script src="data/salary.js"></script>
     <script src="scripts/utils.js"></script>
     <script src="scripts/page-transition.js"></script>
     <script src="scripts/generate-charts.js"></script>
