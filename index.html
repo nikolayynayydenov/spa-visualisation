@@ -19,7 +19,7 @@
     <script src="libraries/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
     <script src="libraries/leaflet/leaflet.js"></script>
 </head>
-<body>
+<body onload="generateSalaryChartByGender();">
 
     <!-- workaround navbara da ne coverva content izvinqvam se-->
     <div style="height: 70px"></div>
@@ -46,7 +46,7 @@
 			 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Заплати</a>
 			<div class="dropdown-menu">
 		<a class = "dropdown-item" href="#" onclick="gopage(3);generateSalaryChartBySector();"> По икономически сектор</a>
-		<a class = "dropdown-item" href="#" onclick="gopage(5);generateSalaryChartByGender();">По пол</a>
+		<a class = "dropdown-item" href="#" onclick="gopage(5)">По пол</a>
 			</div>
 
 
