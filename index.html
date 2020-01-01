@@ -19,7 +19,7 @@
     <script src="libraries/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
     <script src="libraries/leaflet/leaflet.js"></script>
 </head>
-<body onload="generateSalaryChartByGender();">
+<body onload="generateSalaryChartByGender();generateHiredStatsChart();generateHiredStatsChartAlt();generateSalaryChartBySector();">
 
     <!-- workaround navbara da ne coverva content izvinqvam se-->
     <div style="height: 70px"></div>
@@ -34,8 +34,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Наети лица</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#" onclick="gopage(0);generateHiredStatsChart();">По икономически сектор</a>
-                        <a class="dropdown-item" href="#" onclick="gopage(1);generateHiredStatsChartAlt()">По икономически сектор alternative</a>
+                        <a class="dropdown-item" href="#" onclick="gopage(0);">По икономически сектор</a>
+                        <a class="dropdown-item" href="#" onclick="gopage(1);">По икономически сектор alternative</a>
                         <a class="dropdown-item" href="#" onclick="gopage(2);generateProvincesMap();">По административна област</a>
                     </div>
                 </li>
@@ -45,7 +45,7 @@
                 <li class="nav-item dropdown">
 			 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Заплати</a>
 			<div class="dropdown-menu">
-		<a class = "dropdown-item" href="#" onclick="gopage(3);generateSalaryChartBySector();"> По икономически сектор</a>
+		<a class = "dropdown-item" href="#" onclick="gopage(3);"> По икономически сектор</a>
 		<a class = "dropdown-item" href="#" onclick="gopage(5)">По пол</a>
 			</div>
 

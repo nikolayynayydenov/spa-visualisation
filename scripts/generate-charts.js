@@ -73,7 +73,7 @@ function generateHiredStatsChart() {
                     label: 'Брой наети лица',
                     backgroundColor: 'rgb(255, 99, 132)',
                     borderColor: 'rgb(255, 99, 132)',
-                    data: [item.publicSector, item.privateSector]
+                    data: [item.publicSector, item.privateSector,"0"]
                 }]
             },
         
