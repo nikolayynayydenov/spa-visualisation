@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="libraries/bootstrap-4.4.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/page-layout.css">
     <link rel="stylesheet" href="css/provinces-map.css">
-    <link rel="stylesheet" href="css/chart-table-map.css">
+    <link rel="stylesheet" href="css/chart-table.css">
     
     <link rel="stylesheet" href="libraries/leaflet/leaflet.css">
 
@@ -19,7 +19,7 @@
     <script src="libraries/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
     <script src="libraries/leaflet/leaflet.js"></script>
 </head>
-<body>
+<body onload="generateSalaryChartByGender();generateHiredStatsChart();generateHiredStatsChartAlt();generateSalaryChartBySector();">
 
     <!-- workaround navbara da ne coverva content izvinqvam se-->
     <div style="height: 70px"></div>
@@ -36,21 +36,20 @@
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="#" onclick="gopage(0);">По икономически сектор</a>
                         <a class="dropdown-item" href="#" onclick="gopage(1);">По икономически сектор alternative</a>
-                        <a class="dropdown-item" href="#" onclick="gopage(2);">По административна област</a>
+
+                        <a class="dropdown-item" href="#" onclick="gopage(2);generateProvincesMap();">По административна област</a>
+
                     </div>
                 </li>
 
 
 
                 <li class="nav-item dropdown">
-			 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Заплати</a>
-			<div class="dropdown-menu">
-		<a class = "dropdown-item" href="#" onclick="gopage(3);"> По икономически сектор</a>
-		<a class = "dropdown-item" href="#" onclick="gopage(4);">По пол</a>
-			</div>
-
-
-
+                   <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Заплати</a>
+                  <div class="dropdown-menu">
+                      <a class = "dropdown-item" href="#" onclick="gopage(3);"> По икономически сектор</a>
+                      <a class = "dropdown-item" href="#" onclick="gopage(4);">По пол</a>
+                  </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" onclick="gopage(5)" href="#">Коефиценти за безработица</a>
