@@ -88,7 +88,7 @@ data['salary'] = {
             "activity": "Държавно управление",
             "all": "15149",
             "publicSector": "15149",
-            "privateSector": "x"
+            "privateSector": "0"
         },
         {
             "activity": "Образование",
