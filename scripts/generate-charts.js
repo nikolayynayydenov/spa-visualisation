@@ -44,6 +44,37 @@ function generateProvincesMap() {
 }
 
 
+function generateTableIfNeeded(chartDiv,itemFirst,itemSecond,itemFirstName,itemSecondName,color)
+{
+	let priv =parseInt(itemFirst)+1;
+	let pub =  parseInt(itemSecond)+1;
+	
+
+	if((pub/priv)*100<10 || (priv/pub)*100<10)
+	{
+		priv--;
+		pub--;
+		let table=$('<table class="smallTable"></table>').appendTo(chartDiv);
+		let firstRow=$('<tr></tr>')
+		.appendTo(table);
+		$('<th></th>')
+			.text(itemFirstName)
+			.css("background-color",color)
+			.appendTo(firstRow);
+		$('<th></th>')
+			.text(itemSecondName)
+			.css("background-color",color)
+			.appendTo(firstRow);
+		let secondRow=$('<tr></tr>')
+		.appendTo(table);
+		$('<td></td>')
+			.text(itemFirst)
+			.appendTo(secondRow);
+		$('<td></td>')
+			.text(itemSecond)
+			.appendTo(secondRow);
+	}
+}
 function generateHiredStatsChart() {
     let hired = data['hired']
     let len = hired.length;
@@ -90,7 +121,7 @@ function generateHiredStatsChart() {
                     label: 'Брой наети лица',
                     backgroundColor: 'rgb(255, 99, 132)',
                     borderColor: 'rgb(255, 99, 132)',
-                    data: [item.publicSector, item.privateSector]
+                    data: [item.publicSector, item.privateSector,"0"]
                 }]
             },
         
@@ -101,7 +132,8 @@ function generateHiredStatsChart() {
                     text: item.activity
                 }
             }
-        });    
+        });
+	    generateTableIfNeeded(chartDiv,item.publicSector,item.privateSector,'Обществен сектор','Частен сектор','rgb(255, 99, 132)');
     }
 }
 
@@ -118,8 +150,8 @@ function generateHiredStatsChartAlt() {
             },
             {
                 label: 'Обществен сектор',
-                backgroundColor: "#f4b800",
-                data: data.hired.map(obj => obj.publicSector)
+		backgroundColor: "#f4b800", data: data.hired.map(obj =>
+			obj.publicSector)
             }
         ]
     };
@@ -202,6 +234,8 @@ function generateSalaryChartBySector()
                 }
             }
         });    
+	 generateTableIfNeeded(chartDiv,item.publicSector,item.privateSector,'Обществен сектор','Частен сектор','rgba(0, 155, 100, 0.5)');
+
     }
 }
 function generateSalaryChartByGender()
