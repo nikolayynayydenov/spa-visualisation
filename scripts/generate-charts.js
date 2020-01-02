@@ -359,9 +359,9 @@ function generateZaplatiAlt() {
 }
 */
 
-generateProvincesMap();
-generateHiredStatsChart();
-generateHiredStatsChartAlt();
-generateSalaryChartBySector();
-generateSalaryChartByGender();
+//generateProvincesMap();
+//generateHiredStatsChart();
+//generateHiredStatsChartAlt();
+//generateSalaryChartBySector();
+//generateSalaryChartByGender();
 // generateZaplatiAlt();
