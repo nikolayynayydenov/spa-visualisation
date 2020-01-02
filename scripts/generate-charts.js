@@ -168,7 +168,8 @@ function generateHiredStatsChartAlt() {
                 yAxes: [{
                     stacked: true
                 }]
-            }
+            },
+            maintainAspectRatio: false
         }
     });
 }
@@ -326,5 +327,41 @@ let sectorDat = data['salary']['byGender'];
     }
 }
 
-//function makeStatTable(divElement,dataElement,)
 
+/*
+function generateZaplatiAlt() {
+    var altDisplayData = {
+        labels: data.hired.map(obj => obj.activity),
+        datasets: [
+            {
+                label: 'Частен сектор',
+                backgroundColor: "#136486",
+                data: data.salary.bySector.map(obj => obj.privateSector)
+            },
+            {
+                label: 'Обществен сектор',
+                backgroundColor: "#f4b800",
+                data: data.salary.bySector.map(obj => obj.publicSector)
+            }
+        ]
+    };
+    
+    let ctx = document.getElementById('zaplati2canvas').getContext('2d');
+    let chart = new Chart(ctx, {
+        type: 'horizontalBar',
+        data: altDisplayData,
+        options: {
+            scales: {
+            },
+            maintainAspectRatio: false
+        }
+    });
+}
+*/
+
+generateProvincesMap();
+generateHiredStatsChart();
+generateHiredStatsChartAlt();
+generateSalaryChartBySector();
+generateSalaryChartByGender();
+// generateZaplatiAlt();
